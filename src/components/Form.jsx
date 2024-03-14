@@ -7,6 +7,10 @@ import BackButton from "./BackButton";
 import Message from "./Message";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import Spinner from "./Spinner";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { useCities } from "../contexts/CitiesContext";
+import { useNavigate } from "react-router-dom";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -20,6 +24,7 @@ const BASE_URL = `https://api.bigdatacloud.net/data/reverse-geocode-client`;
 
 function Form() {
   const [lat, lng] = useUrlPosition();
+  const navigate = useNavigate();
 
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
   const [cityName, setCityName] = useState("");
@@ -28,8 +33,11 @@ function Form() {
   const [notes, setNotes] = useState("");
   const [emoji, setEmoji] = useState("");
   const [geocodingError, setGeocodingError] = useState("");
+  const { createCity, isLoading } = useCities();
 
   useEffect(() => {
+    if (!lat && !lng) return;
+
     async function fetchCityData() {
       try {
         setIsLoadingGeocoding(true);
@@ -37,8 +45,6 @@ function Form() {
         const res = await fetch(`${BASE_URL}?latitude=${lat}&longitude=${lng}`);
         // const res = await fetch(`${BASE_URL}?latitude=${lat}&longitute=${lng}`);
         const data = await res.json();
-
-        console.log(data);
 
         if (!data.countryCode)
           throw new Error(
@@ -56,11 +62,34 @@ function Form() {
     fetchCityData();
   }, [lat, lng]);
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!cityName || !date) return;
+
+    const newCity = {
+      cityName,
+      country,
+      date,
+      notes,
+      emoji,
+      position: { lat, lng },
+    };
+
+    await createCity(newCity);
+    navigate("/app/cities");
+  }
+
   if (isLoadingGeocoding) return <Spinner />;
   if (geocodingError) return <Message message={geocodingError} />;
+  if (!lat && !lng)
+    return <Message message="Start clicking somewhere on the map" />;
 
   return (
-    <form className={styles.form}>
+    <form
+      className={`${styles.form} ${isLoading ? styles.form.loading : ""}`}
+      onSubmit={handleSubmit}
+    >
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input
@@ -73,10 +102,12 @@ function Form() {
 
       <div className={styles.row}>
         <label htmlFor="date">When did you go to {cityName}?</label>
-        <input
-          id="date"
-          onChange={(e) => setDate(e.target.value)}
-          value={date}
+
+        <DatePicker
+          selected={date}
+          onChange={(date) => setDate(date)}
+          dateFormat={"dd/MM/yyyy"}
+          minDate={new Date()}
         />
       </div>
 
