@@ -1,27 +1,39 @@
 {
   "cities": [
     {
-      "id": "1480",
+      "id": "4ed8",
       "cityName": "Castello de la Plana",
       "country": "Spain",
-      "date": "2024-03-14T14:22:38.097Z",
+      "date": "2024-03-14T15:49:43.860Z",
       "notes": "",
       "emoji": "🇪🇸",
       "position": {
-        "lat": "40.0186754526281",
-        "lng": "-0.00034332275390625"
+        "lat": "39.983960059494684",
+        "lng": "-0.04085540771484376"
       }
     },
     {
-      "id": "2bf6",
-      "cityName": "Borriol",
+      "id": "ff13",
+      "cityName": "Castello de la Plana",
       "country": "Spain",
-      "date": "2024-03-22T14:22:46.000Z",
+      "date": "2024-03-14T15:54:20.680Z",
       "notes": "",
       "emoji": "🇪🇸",
       "position": {
-        "lat": "40.04102071873235",
-        "lng": "-0.04549026489257813"
+        "lat": "39.986590631428534",
+        "lng": "-0.03776550292968751"
+      }
+    },
+    {
+      "id": "4cff",
+      "cityName": "Castello de la Plana",
+      "country": "Spain",
+      "date": "2024-03-14T16:21:01.914Z",
+      "notes": "",
+      "emoji": "🇪🇸",
+      "position": {
+        "lat": "40.01026122056981",
+        "lng": "-0.004806518554687501"
       }
     }
   ]
