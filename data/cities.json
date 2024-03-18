@@ -1,39 +1,39 @@
 {
   "cities": [
     {
-      "id": "4ed8",
-      "cityName": "Castello de la Plana",
-      "country": "Spain",
-      "date": "2024-03-14T15:49:43.860Z",
+      "id": "41af",
+      "cityName": "Tbilisi",
+      "country": "Georgia",
+      "date": "2024-03-18T14:09:46.706Z",
       "notes": "",
-      "emoji": "🇪🇸",
+      "emoji": "🇬🇪",
       "position": {
-        "lat": "39.983960059494684",
-        "lng": "-0.04085540771484376"
+        "lat": "41.692693699677264",
+        "lng": "44.79937076568604"
       }
     },
     {
-      "id": "ff13",
-      "cityName": "Castello de la Plana",
-      "country": "Spain",
-      "date": "2024-03-14T15:54:20.680Z",
+      "id": "127b",
+      "cityName": "Tbilisi",
+      "country": "Georgia",
+      "date": "2024-03-18T14:09:49.844Z",
       "notes": "",
-      "emoji": "🇪🇸",
+      "emoji": "🇬🇪",
       "position": {
-        "lat": "39.986590631428534",
-        "lng": "-0.03776550292968751"
+        "lat": "41.69294860633601",
+        "lng": "44.789843559265144"
       }
     },
     {
-      "id": "4cff",
+      "id": "01b4",
       "cityName": "Castello de la Plana",
       "country": "Spain",
-      "date": "2024-03-14T16:21:01.914Z",
+      "date": "2024-03-18T19:01:59.575Z",
       "notes": "",
       "emoji": "🇪🇸",
       "position": {
-        "lat": "40.01026122056981",
-        "lng": "-0.004806518554687501"
+        "lat": "39.979750933720716",
+        "lng": "-0.0487518310546875"
       }
     }
   ]
